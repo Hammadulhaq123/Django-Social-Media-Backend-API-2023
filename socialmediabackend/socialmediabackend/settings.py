@@ -50,6 +50,8 @@ EXTENDED_APPS = [
     'rest_framework'
 ]
 
+INSTALLED_APPS += EXTENDED_APPS
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
