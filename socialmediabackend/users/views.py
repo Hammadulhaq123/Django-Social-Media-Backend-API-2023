@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 from .serializers import UserSerializer
 # Create your views here.
 
@@ -18,5 +19,8 @@ class UserViewset(viewsets.Viewset):
         pass
 
     # Retrieve
-    def retrieve(self, request):
-        pass
+    def retrieve(self, request, pk):
+        queryset = User.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
