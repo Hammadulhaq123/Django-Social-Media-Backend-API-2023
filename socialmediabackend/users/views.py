@@ -25,6 +25,7 @@ class UserViewset(viewsets.ViewSet):
     # Retrieve
     def retrieve(self, request, pk):
         queryset = User.objects.all()
-        user = get_object_or_404(queryset, pk=pk)
+        lookup_field = 'username'
+        user = get_object_or_404(queryset, username=pk)
         serializer = UserSerializer(user)
         return Response(serializer.data)
