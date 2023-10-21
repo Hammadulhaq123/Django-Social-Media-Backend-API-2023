@@ -45,9 +45,8 @@ INSTALLED_APPS = [
 ]
 
 EXTENDED_APPS = [
-    'users.apps.UsersConfig',
-    'feed.apps.FeedConfig',
     'rest_framework',
+    'users',
     'api',
     'user_profile',
     'posts',
