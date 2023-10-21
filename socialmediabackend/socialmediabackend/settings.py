@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-^#qz-fdjzc5xh0i1!lqj1v9)rs$yp3$skqtz&0njk#x8p5t&d8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1",
+    "localhost","enjoyed-allowing-mongoose.ngrok-free.app"]
 
 
 # Application definition
@@ -49,7 +50,8 @@ EXTENDED_APPS = [
     'user_profile',
     'posts',
     'comments',
-    'likes'
+    'likes',
+    'friendships'
 ]
 
 INSTALLED_APPS += EXTENDED_APPS
