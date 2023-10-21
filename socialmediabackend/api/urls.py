@@ -4,9 +4,11 @@ from user_profile.views import UserProfileView
 from posts.views import PostsViewset
 from comments.views import CommentsViewset
 from likes.views import LikesViewset
+from friendships.views import FriendsViewset
 
 router = DefaultRouter()
 router.register(r'users', UserViewset, basename='users')
+router.register(r'friends', FriendsViewset, basename='friends')
 router.register(r'profiles', UserProfileView, basename='profiles')
 router.register(r'posts', PostsViewset, basename='posts')
 router.register(r'comments', CommentsViewset, basename='comments')
