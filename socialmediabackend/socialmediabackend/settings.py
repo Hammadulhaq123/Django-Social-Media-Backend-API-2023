@@ -50,7 +50,8 @@ EXTENDED_APPS = [
     'rest_framework',
     'api',
     'user_profile',
-    'posts'
+    'posts',
+    'comments'
 ]
 
 INSTALLED_APPS += EXTENDED_APPS
