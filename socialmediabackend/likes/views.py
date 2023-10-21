@@ -1,9 +1,9 @@
-from posts.models import Post
+from posts.models import Posts
 from likes.permissions import hasSelfLikedOrReadOnly
 from django.shortcuts import get_object_or_404, render
 from rest_framework import serializers, viewsets,status,permissions
 from . models import Likes
-from . serializers import LikesSerailizer
+from . serializers import LikesSerializer
 
 
 # Create your views here.
@@ -14,7 +14,7 @@ class LikesViewset(viewsets.ModelViewSet):
     permission_classes=[permissions.IsAuthenticatedOrReadOnly,hasSelfLikedOrReadOnly]
 
     def perform_create(self, serializer):
-        post_instance=get_object_or_404(Post,pk=self.request.data['post'])
+        post_instance=get_object_or_404(Posts,pk=self.request.data['post'])
 
         already_liked=Likes.objects.filter(post=post_instance,liked_by=self.request.user).exists()
         if already_liked:
