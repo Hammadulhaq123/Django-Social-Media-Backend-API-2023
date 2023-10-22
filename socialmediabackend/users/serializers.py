@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from user_profile.serializers import ProfileSerializer
 from posts.serializers import PostSerializer
 from friendships.serializers import FriendSerializer
+from events.serializers import EventSerializer
 
 
 
@@ -10,11 +11,12 @@ from friendships.serializers import FriendSerializer
 class UserSerializer(serializers.ModelSerializer):
     profile_data = ProfileSerializer(read_only=True)
     posts = PostSerializer(many=True, read_only=True)
+    events = EventSerializer(many=True, read_only=True)
     followers = FriendSerializer(many=True, read_only=True)
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'first_name','last_name','email', 'password', 'profile_data','followers','posts','is_active')
+        fields = ('id', 'username', 'first_name','last_name','email', 'password', 'profile_data','followers','events','posts','is_active')
         extra_kwargs = {'email': {'required': True,
                                   'write_only': True}, 'password': {'write_only': True}}
 
