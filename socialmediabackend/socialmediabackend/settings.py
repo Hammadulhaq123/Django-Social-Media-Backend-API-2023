@@ -51,7 +51,9 @@ EXTENDED_APPS = [
     'posts',
     'comments',
     'likes',
-    'friendships'
+    'friendships',
+    'events',
+    'participants'
 ]
 
 INSTALLED_APPS += EXTENDED_APPS
